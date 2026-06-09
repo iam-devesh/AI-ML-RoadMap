@@ -1,0 +1,168 @@
+# Day 1: Understanding Python Sets
+
+## 1. What is a Set?
+A **Set** is a built-in Python collection used to store multiple items in a single variable. 
+* **Unordered**: The items in a set do not have a defined order. Every time you print or use a set, the items may appear in a different order.
+* **Unindexed**: You cannot access items using an index (like `set[0]`) or a key.
+* **Unchangeable (Immutable Items)**: Once a set is created, you cannot change its items. However, you can add new items or remove existing ones.
+* **No Duplicates Allowed**: Sets cannot have two items with the same value. Duplicate values are automatically filtered out.
+* **Syntax**: Written with curly braces `{}`.
+
+---
+
+## 2. Creating a Set
+```python
+# A simple set of strings
+fruits = {"apple", "banana", "cherry"}
+
+# Duplicate values are ignored
+numbers = {1, 2, 3, 2, 4, 1}
+print(numbers)  # Output: {1, 2, 3, 4} (Duplicates removed)
+
+# The Empty Set Trap (Crucial for beginners!)
+# Using empty curly braces {} creates an empty DICTIONARY, not a set.
+empty_dict = {}
+print(type(empty_dict))  # Output: <class 'dict'>
+
+# To create an empty set, you MUST use set()
+empty_set = set()
+print(type(empty_set))   # Output: <class 'set'>
+```
+
+---
+
+## 3. Accessing Items
+Since sets are unordered and unindexed, you cannot access individual elements directly. Instead, you can:
+* Loop through the set using a `for` loop.
+* Check if a value is present using the `in` operator.
+
+```python
+fruits = {"apple", "banana", "cherry"}
+
+# Checking if "banana" is in the set
+print("banana" in fruits)  # Output: True
+
+# Looping through elements
+for fruit in fruits:
+    print(fruit)
+```
+
+---
+
+## 4. Adding Items
+
+### A. Adding a Single Item with `add()`
+To add one item to a set, use the `.add()` method.
+```python
+fruits = {"apple", "banana"}
+fruits.add("cherry")
+print(fruits)  # Output: {"apple", "banana", "cherry"}
+```
+
+### B. Adding Multiple Items with `update()`
+To add items from another set (or any iterable like a list or tuple), use `.update()`.
+```python
+fruits = {"apple", "banana"}
+more_fruits = ["cherry", "orange", "apple"] # "apple" is duplicate, will be ignored
+
+fruits.update(more_fruits)
+print(fruits)  # Output: {'apple', 'banana', 'cherry', 'orange'}
+```
+
+---
+
+## 5. Removing Items
+
+### A. Using `remove()` vs. `discard()`
+Both remove a specified item, but they behave differently if the item is **not** present in the set:
+* **`remove(item)`**: Will throw a `KeyError` if the item does not exist.
+* **`discard(item)`**: Will **not** throw an error if the item does not exist (safer).
+
+```python
+fruits = {"apple", "banana", "cherry"}
+
+fruits.remove("banana")   # Works fine.
+# fruits.remove("mango")  # Error: KeyError: 'mango'
+
+fruits.discard("mango")   # Works fine and does nothing!
+```
+
+### B. Using `pop()`
+Removes and returns an item from the set. Since sets are unordered, you do not know which item gets removed.
+```python
+fruits = {"apple", "banana", "cherry"}
+removed_item = fruits.pop()
+
+print(removed_item)  # Output: (could be any fruit!)
+print(fruits)        # Output: (remaining fruits)
+```
+
+### C. Using `clear()`
+Empties the set.
+```python
+fruits = {"apple", "banana"}
+fruits.clear()
+print(fruits)  # Output: set()
+```
+
+---
+
+## 6. Mathematical Set Operations
+Sets are highly useful because they allow you to perform standard mathematical operations:
+
+```python
+setA = {1, 2, 3, 4}
+setB = {3, 4, 5, 6}
+```
+
+### A. Union (`union()` or `|`)
+Combines all items from both sets (excluding duplicates).
+```python
+print(setA.union(setB))  # Output: {1, 2, 3, 4, 5, 6}
+print(setA | setB)       # Output: {1, 2, 3, 4, 5, 6}
+```
+
+### B. Intersection (`intersection()` or `&`)
+Finds items that are present in **both** sets.
+```python
+print(setA.intersection(setB))  # Output: {3, 4}
+print(setA & setB)              # Output: {3, 4}
+```
+
+### C. Difference (`difference()` or `-`)
+Finds items in `setA` that are **not** in `setB`.
+```python
+print(setA.difference(setB))  # Output: {1, 2}
+print(setA - setB)            # Output: {1, 2}
+```
+
+### D. Symmetric Difference (`symmetric_difference()` or `^`)
+Finds items that are in either of the sets, but **not in both** (the opposite of intersection).
+```python
+print(setA.symmetric_difference(setB))  # Output: {1, 2, 5, 6}
+print(setA ^ setB)                       # Output: {1, 2, 5, 6}
+```
+
+---
+
+## 7. Summary of Set Methods Reference Table
+
+| Method | Description |
+| :--- | :--- |
+| `add()` | Adds an element to the set |
+| `clear()` | Removes all the elements from the set |
+| `copy()` | Returns a copy of the set |
+| `difference()` | Returns a set containing the difference between two or more sets |
+| `difference_update()` | Removes the items in this set that are also included in another, specified set |
+| `discard()` | Remove the specified item (no error if item doesn't exist) |
+| `intersection()` | Returns a set, that is the intersection of two other sets |
+| `intersection_update()` | Removes the items in this set that are not present in other, specified set(s) |
+| `isdisjoint()` | Returns whether two sets have a intersection or not |
+| `issubset()` | Returns whether another set contains this set or not |
+| `issuperset()` | Returns whether this set contains another set or not |
+| `pop()` | Removes an element from the set |
+| `remove()` | Removes the specified element (raises error if item doesn't exist) |
+| `symmetric_difference()` | Returns a set with the symmetric differences of two sets |
+| `symmetric_difference_update()` | inserts the symmetric differences from this set and another |
+| `union()` | Return a set containing the union of sets |
+| `update()` | Update the set with the union of this set and others |

@@ -1,0 +1,139 @@
+# Day 1: Understanding Python Tuples
+
+## 1. What is a Tuple?
+A **Tuple** is a built-in Python collection used to store multiple items in a single variable.
+* **Ordered**: The items have a defined order, and that order will not change.
+* **Unchangeable (Immutable)**: You cannot add, remove, or modify items once the tuple is created.
+* **Allows Duplicates**: Since tuples are indexed, they can hold multiple identical values.
+* **Syntax**: Written with round brackets `()`.
+
+---
+
+## 2. Tuple vs. List (When to use which?)
+
+| Feature | List (`list`) | Tuple (`tuple`) |
+| :--- | :--- | :--- |
+| **Syntax** | Square brackets `[1, 2]` | Parentheses `(1, 2)` |
+| **Mutability** | **Mutable** (can be changed) | **Immutable** (cannot be changed) |
+| **Performance** | Slower (requires more overhead) | Faster (read-only and memory-efficient) |
+| **Use Case** | Data that needs to change (e.g., shopping list) | Constant data that shouldn't change (e.g., coordinates `(lat, lon)`, RGB colors) |
+
+---
+
+## 3. Creating a Tuple
+```python
+# A simple tuple of strings
+colors = ("red", "green", "blue")
+
+# A tuple of integers
+numbers = (1, 2, 3)
+
+# Mixed data types
+mixed = ("Alice", 101, True, 3.8)
+
+# The Single Item Tuple Trap (Crucial for beginners!)
+# To create a tuple with only one item, you MUST include a trailing comma.
+not_a_tuple = ("apple")  # Python sees this as just a string
+is_a_tuple = ("apple",)  # Python sees this as a tuple of length 1
+
+print(type(not_a_tuple))  # Output: <class 'str'>
+print(type(is_a_tuple))   # Output: <class 'tuple'>
+```
+
+---
+
+## 4. Accessing Tuple Items
+Tuples support the exact same indexing and slicing rules as Lists.
+
+```python
+coordinates = (40.7128, -74.0060, 250)
+
+# Positive & Negative indexing
+print(coordinates[0])   # Output: 40.7128 (First item)
+print(coordinates[-1])  # Output: 250 (Last item)
+
+# Slicing
+print(coordinates[0:2]) # Output: (40.7128, -74.0060)
+```
+
+---
+
+## 5. The Power of Immutability (Unchangeable)
+Once a tuple is created, its elements cannot be reassigned or deleted.
+
+```python
+fruits = ("apple", "banana")
+
+# Trying to change an item will throw a TypeError:
+# fruits[0] = "cherry"  # Error: TypeError: 'tuple' object does not support item assignment
+```
+
+### The Workaround (If you absolutely must change a tuple):
+Convert it to a list, change the list, and convert it back to a tuple.
+```python
+x = ("apple", "banana", "cherry")
+y = list(x)           # Step 1: Convert to list -> ['apple', 'banana', 'cherry']
+y[1] = "kiwi"         # Step 2: Modify the list -> ['apple', 'kiwi', 'cherry']
+x = tuple(y)          # Step 3: Convert back to tuple
+print(x)              # Output: ("apple", "kiwi", "cherry")
+```
+
+---
+
+## 6. Tuple Unpacking
+Unpacking is a clean way to extract values from a tuple directly into variables.
+
+```python
+# Basic Unpacking
+fruits = ("apple", "banana", "cherry")
+(green, yellow, red) = fruits
+
+print(green)   # Output: apple
+print(yellow)  # Output: banana
+print(red)     # Output: cherry
+```
+
+### Using `*` for Leftover Items
+If the number of variables is less than the number of items in the tuple, add an asterisk `*` to assign the remaining values as a list to that variable.
+```python
+fruits = ("apple", "banana", "cherry", "strawberry", "raspberry")
+(green, yellow, *red) = fruits
+
+print(green)   # Output: apple
+print(yellow)  # Output: banana
+print(red)     # Output: ['cherry', 'strawberry', 'raspberry'] (List of rest)
+```
+
+---
+
+## 7. Predefined Tuple Methods
+Because tuples are immutable, they have only **two** predefined methods.
+
+### 1. `count()`
+Returns the number of times a specified value occurs in a tuple.
+```python
+numbers = (1, 3, 7, 8, 7, 5, 4, 6, 8, 5, 5)
+print(numbers.count(5))  # Output: 3 (5 appears 3 times)
+```
+
+### 2. `index()`
+Searches the tuple for a specified value and returns the index of its first occurrence. (Raises `ValueError` if not found).
+```python
+fruits = ("apple", "banana", "cherry")
+print(fruits.index("cherry"))  # Output: 2
+```
+
+---
+
+## 8. Built-in Functions with Tuples
+Like lists, you can run global functions on tuples:
+
+* **`len(tuple)`**: Returns length of the tuple.
+* **`min(tuple)` / `max(tuple)`**: Returns smallest/largest element.
+* **`sum(tuple)`**: Sums up numeric values in the tuple.
+* **`sorted(tuple)`**: Returns a **new sorted list** containing the tuple's elements. (Note: it outputs a list, not a tuple).
+  ```python
+  t = (3, 1, 2)
+  s = sorted(t)
+  print(s)  # Output: [1, 2, 3] (a List!)
+  ```

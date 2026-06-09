@@ -1,0 +1,185 @@
+# Day 1: Understanding Python Dictionaries
+
+## 1. What is a Dictionary?
+A **Dictionary** (often called a `dict`) is a built-in Python collection used to store data in **key-value pairs**. Think of it like a real-world dictionary: you look up a "word" (the **key**) to find its "definition" (the **value**).
+
+* **Ordered**: As of Python 3.7, dictionaries maintain the order of item insertion.
+* **Changeable (Mutable)**: You can add, remove, or change values after the dictionary is created.
+* **No Duplicate Keys**: Keys must be unique. If you assign a value to an existing key, the old value is overwritten.
+* **Syntax**: Written with curly braces `{}` and uses `key: value` format.
+
+---
+
+## 2. Creating a Dictionary
+```python
+# A simple dictionary storing user info
+user = {
+    "username": "devesh_coder",
+    "email": "devesh@example.com",
+    "level": 5,
+    "is_active": True
+}
+
+# Creating an empty dictionary
+empty_dict = {}
+
+# Creating using the dict() constructor
+student = dict(name="Alice", grade="A", age=20)
+```
+
+---
+
+## 3. Accessing Items
+
+### A. Direct Key Lookup
+You can access a value by putting its key inside square brackets `[]`.
+```python
+user = {"name": "Devesh", "role": "Developer"}
+print(user["name"])  # Output: Devesh
+
+# Note: If the key does not exist, this throws a KeyError!
+# print(user["age"])  # Error: KeyError: 'age'
+```
+
+### B. The `get()` Method (Safe Access)
+Using `.get()` is safer because it returns `None` (instead of raising an error) if the key doesn't exist. You can also specify a default fallback value.
+```python
+user = {"name": "Devesh", "role": "Developer"}
+
+print(user.get("role"))          # Output: Developer
+print(user.get("age"))           # Output: None
+print(user.get("age", "N/A"))    # Output: N/A (custom default fallback)
+```
+
+### C. Extracting Keys, Values, and Items
+* **`keys()`**: Returns a list-like view of all the keys.
+* **`values()`**: Returns a list-like view of all the values.
+* **`items()`**: Returns a list-like view of tuples representing `(key, value)` pairs.
+
+```python
+car = {"brand": "Tesla", "model": "Model 3"}
+
+print(car.keys())    # Output: dict_keys(['brand', 'model'])
+print(car.values())  # Output: dict_values(['Tesla', 'Model 3'])
+print(car.items())   # Output: dict_items([('brand', 'Tesla'), ('model', 'Model 3')])
+```
+
+---
+
+## 4. Modifying and Adding Items
+
+### A. Adding / Updating via Assignment
+If the key exists, the value is updated. If the key does not exist, a new key-value pair is added.
+```python
+car = {"brand": "Ford", "model": "Mustang"}
+
+# Updating an existing key
+car["model"] = "Mustang GT" 
+
+# Adding a new key-value pair
+car["year"] = 1969
+
+print(car)  # Output: {'brand': 'Ford', 'model': 'Mustang GT', 'year': 1969}
+```
+
+### B. Using the `update()` Method
+Updates the dictionary with items from another dictionary or from an iterable of key-value pairs.
+```python
+car = {"brand": "Ford", "model": "Mustang"}
+car.update({"model": "Mach-E", "color": "Red"})
+
+print(car)  # Output: {'brand': 'Ford', 'model': 'Mach-E', 'color': 'Red'}
+```
+
+---
+
+## 5. Removing Items
+
+### 1. `pop(key)`
+Removes the specified key and returns the associated value.
+```python
+user = {"name": "Alice", "role": "Admin", "level": 10}
+role = user.pop("role")
+
+print(role)  # Output: "Admin"
+print(user)  # Output: {"name": "Alice", "level": 10}
+```
+
+### 2. `popitem()`
+Removes and returns the last inserted key-value pair as a tuple.
+```python
+user = {"name": "Alice", "role": "Admin"}
+last_item = user.popitem()
+
+print(last_item)  # Output: ('role', 'Admin')
+print(user)       # Output: {'name': 'Alice'}
+```
+
+### 3. `del` Keyword
+Deletes the item associated with a specific key.
+```python
+user = {"name": "Alice", "role": "Admin"}
+del user["role"]
+print(user)  # Output: {'name': 'Alice'}
+
+# Can also delete the entire dictionary variable
+# del user
+```
+
+### 4. `clear()`
+Empties the entire dictionary.
+```python
+user = {"name": "Alice"}
+user.clear()
+print(user)  # Output: {}
+```
+
+---
+
+## 6. Checking if a Key Exists
+To check if a key exists in a dictionary, use the **`in`** keyword.
+```python
+car = {"brand": "Ford", "year": 1969}
+
+if "brand" in car:
+    print("Yes, brand is one of the keys!")  # This will print
+```
+
+---
+
+## 7. Looping through a Dictionary
+You can loop through keys, values, or key-value pairs easily:
+
+```python
+user = {"name": "Alice", "role": "Admin"}
+
+# 1. Loop through keys (default behavior)
+for key in user:
+    print(key)  # prints: name, role
+
+# 2. Loop through values
+for val in user.values():
+    print(val)  # prints: Alice, Admin
+
+# 3. Loop through both keys and values (Unpacking)
+for key, val in user.items():
+    print(f"{key} -> {val}")  # prints: name -> Alice, role -> Admin
+```
+
+---
+
+## 8. Summary of All Predefined Dictionary Methods
+
+| Method | Description |
+| :--- | :--- |
+| `clear()` | Removes all elements from the dictionary |
+| `copy()` | Returns a copy of the dictionary |
+| `fromkeys()` | Returns a dictionary with the specified keys and value |
+| `get()` | Returns the value of the specified key (safely) |
+| `items()` | Returns a list containing a tuple for each key-value pair |
+| `keys()` | Returns a list containing the dictionary's keys |
+| `pop()` | Removes the element with the specified key |
+| `popitem()` | Removes the last inserted key-value pair |
+| `setdefault()` | Returns the value of a key; if it does not exist, inserts key with a specified value |
+| `update()` | Updates the dictionary with the specified key-value pairs |
+| `values()` | Returns a list of all the values in the dictionary |

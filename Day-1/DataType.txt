@@ -1,0 +1,123 @@
+# Day 1: Python Variables and Data Types
+
+## 1. What is a Variable?
+Think of a **variable** as a named storage box (container) where you can store data. Once you put something in the box, you can refer to it later using the label on the box.
+
+In Python, you create a variable by simply giving it a name and assigning a value to it using the `=` operator.
+
+### Example:
+```python
+# 'age' is the variable name (label)
+# '25' is the value stored inside the box
+age = 25
+
+# 'name' is the variable name
+# '"Alice"' is the text value stored
+name = "Alice"
+
+print(name)  # Output: Alice
+print(age)   # Output: 25
+```
+
+### Rules for Naming Variables:
+* Must start with a letter or an underscore `_` (e.g., `my_var`, `_value`).
+* Cannot start with a number (e.g., `1variable` is invalid).
+* Can only contain alphanumeric characters and underscores (A-z, 0-9, and `_`).
+* Case-sensitive (`Age`, `age`, and `AGE` are three different variables).
+* Cannot use Python reserved keywords (like `if`, `else`, `print`, `class`, etc.).
+
+---
+
+## 2. What is a Data Type?
+A **data type** tells Python what kind of value a variable is holding. Since Python is dynamically typed,
+   you don't need to declare the type explicitly; Python automatically figures it out based on the value you assign.
+
+Here are the most common data types you'll use:
+
+### A. Numeric Types
+1. **Integer (`int`)**: Whole numbers, positive or negative, without decimals.
+   ```python
+   score = 98
+   temperature = -5
+   ```
+2. **Float (`float`)**: Floating-point numbers, representing numbers with decimals.
+   ```python
+   price = 19.99
+   pi = 3.14159
+   ```
+
+### B. Text Type
+1. **String (`str`)**: Text or characters enclosed in single quotes `'...'` or double quotes `"..."`.
+   ```python
+   message = "Hello, World!"
+   grade = 'A'
+   ```
+
+### C. Boolean Type
+1. **Boolean (`bool`)**: Represents one of two values: `True` or `False`. Used heavily in logic and decision making.
+   ```python
+   is_logged_in = True
+   has_passed = False
+   ```
+
+### D. Sequence/Collection Types
+These store multiple items in a single variable:
+
+1. **List (`list`)**: An ordered, changeable (mutable) collection that allows duplicate items. Written with square brackets `[]`.
+   ```python
+   fruits = ["apple", "banana", "cherry"]
+   ```
+2. **Tuple (`tuple`)**: An ordered, unchangeable (immutable) collection that allows duplicate items. Written with parentheses `()`.
+   ```python
+   coordinates = (40.7128, -74.0060)
+   ```
+3. **Dictionary (`dict`)**: An ordered* and changeable collection of key-value pairs. No duplicate keys allowed. Written with curly braces `{}` and `key: value`.
+   ```python
+   user = {
+       "name": "Devesh",
+       "role": "Developer",
+       "level": 1
+   }
+   ```
+4. **Set (`set`)**: An unordered, unchangeable*, and unindexed collection with **no duplicate** elements. Written with curly braces `{}`.
+   ```python
+   unique_ids = {101, 102, 103, 101} # The duplicate 101 will be removed automatically
+   ```
+
+---
+
+## 3. How to Check a Variable's Data Type
+You can check the data type of any variable using the built-in `type()` function.
+
+### Example:
+```python
+x = 10
+y = "Hello"
+
+print(type(x))  # Output: <class 'int'>
+print(type(y))  # Output: <class 'str'>
+```
+
+---
+
+## 4. Type Casting (Converting Data Types)
+Sometimes you need to convert a variable from one data type to another. This is called **type casting**.
+
+* `int()` - converts to an integer
+* `float()` - converts to a float
+* `str()` - converts to a string
+
+### Example:
+```python
+# Convert float to int
+pi = 3.14
+pi_int = int(pi)  # Result: 3 (decimals are dropped)
+
+# Convert int to float
+age = 25
+age_float = float(age)  # Result: 25.0
+
+# Convert number to string
+score = 100
+score_str = str(score)  # Result: "100"
+```
