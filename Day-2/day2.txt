@@ -1,0 +1,129 @@
+# Python Basics: Control Flow and Functions - Day 2
+
+This guide covers conditionals, loops, and functions in Python, starting from the basics.
+
+---------------------------------------------------------
+1. CONDITIONALS (if, elif, else)
+---------------------------------------------------------
+Conditionals allow your code to make decisions. They run specific blocks of code only if certain conditions are met.
+
+* Comparison Operators: Used to compare values.
+  == (Equal to)
+  != (Not equal to)
+  <  (Less than)
+  >  (Greater than)
+  <= (Less than or equal to)
+  >= (Greater than or equal to)
+
+* Logical Operators: Used to combine multiple conditions.
+  and (True if BOTH conditions are true)
+  or  (True if AT LEAST ONE condition is true)
+  not (Reverses the result, True becomes False and vice versa)
+
+Example:
+age = 20
+has_ticket = True
+
+if age >= 18 and has_ticket:
+    print("You can enter the movie theater.")
+elif age >= 18 and not has_ticket:
+    print("You need to buy a ticket first.")
+else:
+    print("You are too young for this movie.")
+
+
+---------------------------------------------------------
+2. FOR LOOPS
+---------------------------------------------------------
+A `for` loop is used to iterate over a sequence (like a list, a string, a dictionary, or a range of numbers).
+
+* Iterating over a list:
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+
+* Iterating over a string:
+word = "Python"
+for letter in word:
+    print(letter)
+
+* Iterating using range():
+  range(5) generates numbers from 0 up to 4.
+for i in range(5):
+    print(i)  # Prints 0, 1, 2, 3, 4
+
+* Iterating over a dictionary:
+student_grades = {"Alice": "A", "Bob": "B"}
+for name, grade in student_grades.items():
+    print(f"{name} got an {grade}")
+
+
+---------------------------------------------------------
+3. WHILE LOOPS
+---------------------------------------------------------
+A `while` loop executes a block of code as long as a specified condition remains True.
+
+count = 0
+while count < 3:
+    print("Count is:", count)
+    count = count + 1  # Important: update the condition variable!
+
+* Break and Continue:
+  - 'break' stops the loop entirely.
+  - 'continue' skips the rest of the current iteration and moves to the next one.
+
+for num in range(1, 6):
+    if num == 3:
+        continue  # Skips printing 3
+    if num == 5:
+        break     # Stops the loop before printing 5
+    print(num)    # Output will be 1, 2, 4
+
+
+---------------------------------------------------------
+4. FUNCTIONS
+---------------------------------------------------------
+Functions are reusable blocks of code that perform a specific task. You define them using the `def` keyword.
+
+* Parameters/Arguments: Variables you pass into the function.
+* Return values: The result the function sends back to the caller.
+* Default arguments: Values used if no argument is provided.
+
+def greet(name, greeting="Hello"):
+    # 'name' is a required parameter.
+    # 'greeting' is an optional parameter with a default value of "Hello".
+    message = f"{greeting}, {name}!"
+    return message
+
+# Calling the function:
+result1 = greet("Alice")                  # Uses default greeting
+result2 = greet("Bob", greeting="Hi")     # Overrides default greeting
+
+print(result1)  # Output: Hello, Alice!
+print(result2)  # Output: Hi, Bob!
+
+
+---------------------------------------------------------
+5. PRINTING vs. RETURNING (A Common Trap)
+---------------------------------------------------------
+This is a crucial distinction for beginners!
+
+* print(): Simply displays text on your screen. It does NOT give a value back to your program to be used later. If you assign a printed function to a variable, it gets the value 'None'.
+
+* return: Actually passes a value back to wherever the function was called. This value can be stored in a variable, used in math, or passed to another function.
+
+Example of the trap:
+
+def add_and_print(a, b):
+    print(a + b)  # Only displays the result
+
+def add_and_return(a, b):
+    return a + b  # Gives the result back to the program
+
+# Using print:
+sum1 = add_and_print(5, 5)  # Displays 10 on the screen
+print(sum1)                 # Displays 'None' because nothing was returned!
+
+# Using return:
+sum2 = add_and_return(5, 5) # Doesn't display anything yet, but sum2 now holds the value 10
+print(sum2 * 2)             # Displays 20. We can do math with returned values!
