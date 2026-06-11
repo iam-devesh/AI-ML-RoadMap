@@ -112,7 +112,7 @@ user = {"name": "Alice", "role": "Admin"}
 last_item = user.popitem()
 
 print(last_item)  # Output: ('role', 'Admin')
-print(user)       # Output: {'name': 'Alice'}
+print(user) # Output: {'name': 'Alice'}
 ```
 
 ### 3. `del` Keyword

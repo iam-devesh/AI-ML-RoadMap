@@ -1,0 +1,35 @@
+Learn/review (about 1 hour)
+
+List comprehensions: [x**2 for x in range(10)] — a compact way to build lists from loops.
+    Example: Instead of using a multi-line for loop, you can do:
+    squares = [x**2 for x in range(10)]
+
+Comprehensions with conditions: [x for x in numbers if x > 10].
+    Example: Filters the list before adding items to it.
+    numbers = [1, 5, 12, 15]
+    big_numbers = [x for x in numbers if x > 10]  # Output: [12, 15]
+
+Dict comprehensions: {k: v for k, v in pairs} — build dictionaries the same way.
+    Example: Creates key-value pairs cleanly.
+    names = ['Alice', 'Bob']
+    name_lengths = {name: len(name) for name in names}  # Output: {'Alice': 5, 'Bob': 3}
+
+Set comprehensions: same idea, unique results.
+    Example: Uses curly braces but no colons. Automatically removes duplicates.
+    words = ['apple', 'banana', 'apple']
+    first_letters = {word[0] for word in words}  # Output: {'a', 'b'}
+
+Error handling: try / except / else / finally. Catching specific errors (ValueError, KeyError, ZeroDivisionError) vs a bare except.
+    Example:
+    try:
+        result = 10 / int("abc")
+    except ValueError:
+        print("Invalid number!")  # This runs because "abc" isn't an int
+    except ZeroDivisionError:
+        print("Can't divide by zero!")
+    else:
+        print("Runs only if there were NO errors")
+    finally:
+        print("Runs always, good for cleanup")
+
+Why this matters: real data is messy — files missing, wrong types, bad values. Handling errors keeps your code from crashing on row 9,999 of 10,000
