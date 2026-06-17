@@ -57,7 +57,7 @@ squares_dict = {x: x**2 for x in range(3)} # {0: 0, 1: 1, 2: 4}
 Used to catch exceptions so your program doesn't crash if something goes wrong (e.g., dividing by zero).
 """
 try:
-    result = 10 / 0
+    result = 10 / 0  # type: ignore
 except ZeroDivisionError:
     result = 0 # Program handles the error safely instead of crashing
 
