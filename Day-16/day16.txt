@@ -1,0 +1,26 @@
+continue 3Blue1Brown's "Essence of Linear Algebra", chapters 5–8 (matrix multiplication, determinants, inverse matrices, the idea behind solving systems). Watch actively.
+Key ideas to walk away with:
+
+A matrix transforms space — it rotates, scales, or shears the vectors you feed it.
+  > Think of a 2D coordinate system on a stretchy sheet of rubber. Applying a matrix to vectors is like pulling, rotating, or squishing that sheet.
+  > Rotation: Turning the whole grid. Scaling: Stretching the grid. Shearing: Pushing the top of the grid to the right while keeping the bottom fixed.
+  > The columns of a matrix tell you exactly where the fundamental unit vectors (i and j) land after the transformation.
+
+Matrix multiplication = composing transformations — doing one transformation, then another.
+  > If a matrix is an action that transforms space, multiplying two matrices is doing one action after the other.
+  > If Matrix A rotates space by 90 degrees, and Matrix B stretches it by a factor of 2, then the product B × A gives you a single, new matrix that does both things at once. It's the mathematical equivalent of composing two functions f(g(x)).
+
+Each entry in the result is a dot product — of a row from the first matrix and a column from the second. (This is the link to yesterday)
+  > To find the top-left number in your final matrix, take the first row of the first matrix, and the first column of the second matrix, pair up their numbers, multiply them, and add the results together. This is a dot product.
+  > Since the dot product measures how much two vectors "align", matrix multiplication is essentially computing a whole grid of alignments between the rows of the first matrix and the columns of the second.
+
+The shape rule: an (m × n) matrix times an (n × p) matrix gives (m × p). The inner dimensions must match — this is the source of most beginner errors.
+  > m × n means m rows and n columns.
+  > For the dot product to work, the row from the first matrix must have the same number of items as the column from the second matrix.
+  > Therefore, the inner dimensions must be identical (n and n). The resulting matrix takes the outer dimensions: m × p.
+  > In Machine Learning (like PyTorch or NumPy), dimensional mismatch is the #1 error you will see.
+
+Transpose (.T) — flipping rows and columns, used constantly to make shapes line up.
+  > The transpose operation flips a matrix over its diagonal. Rows become columns, and columns become rows. 
+  > For example, if you have a 2 × 3 matrix and you transpose it, it becomes a 3 × 2 matrix.
+  > Why it's used constantly: Because of the strict "shape rule", you'll often have two matrices whose dimensions don't line up (e.g., a 3 × 4 and a 3 × 5). Transposing one of them allows the inner dimensions to match so the multiplication can proceed.
