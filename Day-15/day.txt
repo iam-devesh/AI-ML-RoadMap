@@ -1,0 +1,36 @@
+Watch 3Blue1Brown's "Essence of Linear Algebra", chapters 1–4 (vectors, linear combinations, linear transformations). It's free on YouTube and genuinely the best intuition-builder that exists. Watch actively — pause and think, don't just play it in the background.
+
+Key ideas to walk away with:
+A vector is both a list of numbers and an arrow in space — the same thing in two languages.
+Vector addition & scaling — combining and stretching arrows.
+The dot product — a measure of how much two vectors point in the same direction. (This one is everywhere in ML.)
+Matrices as transformations — a matrix takes space and reshapes it.
+
+---
+
+### Essence of Linear Algebra (3Blue1Brown) – Summary: Chapters 1–4
+
+The series is designed to build geometric intuition for linear algebra concepts, translating numbers and equations into visual movements in space.
+
+**Chapter 1: Vectors, what even are they?**
+- **Three Perspectives**: 
+  - Physics: Arrows in space with a length (magnitude) and direction.
+  - Computer Science: Ordered lists of numbers.
+  - Mathematics: Objects that can be added together and scaled by numbers.
+- **Geometric Intuition**: Vectors are arrows rooted at the origin of a coordinate system. Vector addition is moving head-to-tail, and scalar multiplication is stretching or squishing the arrow.
+
+**Chapter 2: Linear combinations, span, and basis vectors**
+- **Basis Vectors**: The fundamental vectors of a coordinate system, typically \(\hat{i}\) (1,0) pointing right, and \(\hat{j}\) (0,1) pointing up. Every other vector is just a scaled combination of these two.
+- **Linear Combination**: Scaling two or more vectors and adding them together (\(a\vec{v} + b\vec{w}\)).
+- **Span**: The set of all possible points you can reach by taking linear combinations of your vectors. For most 2D pairs, the span is the entire 2D plane.
+- **Linear Independence**: Vectors are linearly independent if each adds a new dimension to the span. If one can be written as a combination of others, they are linearly dependent.
+
+**Chapter 3: Linear transformations and matrices**
+- **Linear Transformations**: Functions that take an input vector and move it to an output vector. Geometrically, it's a transformation of the entire space.
+- **Rules of Linearity**: Grid lines must remain parallel and evenly spaced, and the origin must stay fixed in place.
+- **Matrices**: A numerical way to describe a linear transformation. By just recording where the basis vectors (\(\hat{i}\) and \(\hat{j}\)) land, you can determine where *any* vector in space will land. The columns of a matrix tell you the landing coordinates of the basis vectors.
+
+**Chapter 4: Matrix multiplication as composition**
+- **Composition**: Applying one linear transformation, followed by another. The net result is equivalent to a single, combined linear transformation.
+- **Matrix Multiplication**: The mathematical process of computing the single matrix that represents this composition.
+- **Order Matters**: By convention, matrix multiplication is read from right to left (like function application \(f(g(x))\)), meaning the rightmost matrix is the transformation applied first.
