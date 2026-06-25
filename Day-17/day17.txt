@@ -1,0 +1,16 @@
+Watch 3Blue1Brown's "Essence of Calculus", chapters 1–3 (the idea of a derivative, slope, rate of change). Watch actively, pausing to think.
+Key ideas to walk away with:
+
+A derivative is a slope — how fast something changes at a given point. Steep slope = changing fast; flat = not changing.
+  > Imagine driving a car: your speedometer tells you your speed (rate of change of distance) at exactly that moment, even if you are speeding up or slowing down.
+  > Visually, if you draw a line perfectly grazing a curve at one specific point (the tangent line), the derivative is the steepness (slope) of that line.
+
+It tells you direction — is the function going up or down right now, and how steeply?
+  > A positive derivative means the function is increasing (going uphill).
+  > A negative derivative means the function is decreasing (going downhill).
+  > In optimization (like training a neural network), this direction tells you exactly which way to "step" to reduce your error!
+
+At a minimum or maximum, the slope is zero — the function flattens out. This is the single most important fact for ML.
+  > If you are at the very bottom of a valley (minimum) or the peak of a hill (maximum), the ground is perfectly flat for a split second.
+  > This means the tangent line is horizontal, and its slope is 0.
+  > Why is this critical for ML? Training a model means finding the minimum possible error/loss. To find that minimum, we calculate the derivative of our error function and look for where it hits zero!
