@@ -1,0 +1,28 @@
+Watch the rest of 3Blue1Brown's "Essence of Calculus" relevant chapters on the chain rule, and optionally his Neural Networks series chapter on gradient descent (it's the perfect bridge into Week 4). Watch actively.
+Key ideas to walk away with:
+
+A gradient is a vector of slopes — one partial derivative per input. With two inputs, it's the slope in the x-direction and the y-direction, bundled together.
+  > If a derivative is the slope of a 2D line, a gradient is the slope of a 3D landscape (or higher dimensions!).
+  > Think of standing on the side of a mountain. The gradient tells you how steep the mountain is if you step North (y-direction) and how steep it is if you step East (x-direction). Bundling those together gives you the overall slope.
+
+The gradient points uphill — toward steepest increase. So to minimize error, you step in the negative gradient direction.
+  > Because the gradient mathematically points straight toward the mountain's peak, if your goal is to find the valley (minimize your error), you must look at where the gradient points and walk exactly the opposite way.
+  > This is why you see `-=` (minus equals) when updating weights in neural networks!
+
+Gradient descent: start somewhere, compute the gradient, take a small step downhill, repeat. That's the entire training loop.
+  > 1. Guess some random weights (start somewhere).
+  > 2. See how wrong you are (compute error).
+  > 3. Calculate the slope of the error (compute gradient).
+  > 4. Adjust your weights slightly downhill (take a step).
+  > 5. Do this thousands of times. That's how AI learns!
+
+Learning rate: how big each step is. Too big → you overshoot and bounce around; too small → painfully slow. A key knob you'll tune constantly.
+  > Imagine you are a giant taking steps down a hill. 
+  > If your steps are too massive (high learning rate), you might step completely over the valley and end up high on the opposite mountain!
+  > If your steps are microscopic (low learning rate), it will take you a million years to reach the bottom.
+  > The learning rate (often denoted by alpha α) controls this step size.
+
+The chain rule: how gradients flow backward through many layers — this is literally "backpropagation," which you'll meet in Week 4.
+  > Neural networks are just functions inside of functions, like f(g(h(x))). 
+  > The chain rule from calculus is the mathematical trick that lets you figure out how a tweak to a weight in the very first layer affects the final error at the very end.
+  > Passing these gradients backward through the network using the chain rule is called backpropagation.
