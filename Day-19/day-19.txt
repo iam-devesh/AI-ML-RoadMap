@@ -1,0 +1,28 @@
+measures of center:
+    Mean — the average. Sensitive to outliers.
+        > If 9 people in a bar earn $50k, and Elon Musk walks in, the mean income jumps to $1B+. The mean is easily dragged around by extreme values.
+    Median — the middle value. Robust to outliers (this is why you filled missing ages with the median on Day 10).
+        > If you line those 10 people up by income, the median is just the person exactly in the middle. Elon Musk doesn't change it. It represents the "typical" person much better here.
+    Mode — the most frequent value.
+        > The most common number. Useful mostly for categorical data (e.g., what is the most common car color in this dataset?).
+
+Measures of spread:
+    Range — max minus min.
+        > Very simple, but easily distorted by just one extreme outlier.
+    Variance — average squared distance from the mean (how spread out the data is).
+        > Calculates how far each point is from the mean, squares it (to remove negatives and heavily penalize huge distances), and averages them. The units are squared though, which makes it hard to interpret intuitively.
+    Standard deviation — the square root of variance, in the same units as the data. The most-used spread measure.
+        > By taking the square root, we return to the original units (e.g., dollars instead of dollars-squared). If average height is 170cm with a std dev of 5cm, it gives you a clean mental picture of how much people typically vary from the mean.
+
+The shape of data:
+    Distribution — how values are spread across their range.
+        > A histogram is the best way to visualize this. It shows you where the data clumps up and where it thins out.
+    The normal distribution ("bell curve") — symmetric, common in nature, central to statistics.
+        > Heights, test scores, and measurement errors usually fall into this symmetric shape. In a perfect normal distribution, Mean = Median = Mode.
+    Skew — when a distribution leans left or right (and why mean ≠ median when it does).
+        > Right skew (long tail to the right): Mean > Median (like the income example with Elon Musk).
+        > Left skew (long tail to the left): Mean < Median.
+    
+Percentiles & quartiles — the values below which a given % of data falls (the basis of the boxplots you made on Day 13).
+    > The 50th percentile is exactly the Median.
+    > The 25th (Q1) and 75th (Q3) percentiles show where the middle 50% of your data lives. The distance between them is the Interquartile Range (IQR), a great way to measure spread while ignoring extreme outliers!
