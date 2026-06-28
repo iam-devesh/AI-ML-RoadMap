@@ -1,0 +1,24 @@
+What probability is: a number from 0 (impossible) to 1 (certain) measuring how likely something is.
+  > Instead of percentages (0% to 100%), ML models almost always output probabilities as decimals. A neural network doesn't say "I am 90% sure this is a dog", it outputs `0.90`.
+
+Basic rules: probabilities of all outcomes sum to 1; the probability of "not A" is 1 minus the probability of A.
+  > If a model predicts there is a 0.7 (70%) chance it will rain, it implicitly means there is a 0.3 (30%) chance it will NOT rain (1 - 0.7 = 0.3). The sum of all possibilities must always equal 1.
+
+Independent events: when one doesn't affect the other (multiply their probabilities — two coin flips).
+  > If you flip a coin, the chance of getting heads is 0.5. If you flip it again, it's still 0.5. The chance of getting two heads in a row is 0.5 * 0.5 = 0.25 (25%). The coin has no memory of the first flip!
+
+Conditional probability: the probability of A given that B happened, written P(A|B). This is the heart of how models update beliefs with evidence.
+  > Unlike independent events, these are events that DO affect each other.
+  > Example: What is the probability that you take an umbrella today? Maybe 10%. But what is the probability you take an umbrella GIVEN that it is cloudy? P(Umbrella | Cloudy) might jump to 80%. The new evidence (clouds) changed your belief.
+
+Bayes' theorem (intuition only): a way to flip a conditional around — updating a prior belief when new evidence arrives. You don't need to memorize the formula; understand the idea: start with a belief, see evidence, update. (This powers spam filters, medical testing, and the Naive Bayes classifier you'll meet in Phase 1.)
+  > 1. You start with a guess (Prior belief). "This email is probably not spam."
+  > 2. You observe evidence. "The email contains the word 'Viagra' and 'Prince'."
+  > 3. You update your guess based on that evidence (Posterior belief). "Okay, it's definitely spam."
+  > This loop of updating belief based on evidence is the core of statistical machine learning.
+
+The classic gotcha: a 99%-accurate test for a rare disease can still mean a positive result is probably a false alarm — because the disease is rare. Sit with this; it's the most counterintuitive and important idea in applied probability.
+  > Imagine a disease affects 1 in 10,000 people. You test 10,000 people.
+  > 1 person actually has it. The 99% accurate test correctly flags them. (1 True Positive)
+  > 9,999 people do NOT have it. The 99% accurate test gets it right for 99% of them, but is wrong for 1%. What is 1% of 9,999? Roughly 100 people. (100 False Positives)
+  > So if you test positive, you are 1 of 101 people who got flagged. Your actual chance of having the disease is only 1 out of 101 (less than 1%). The "base rate" (how rare the disease is) dominates the math! This is called the Base Rate Fallacy.
