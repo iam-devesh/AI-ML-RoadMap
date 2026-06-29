@@ -1,0 +1,38 @@
+# Python & Data Stack (The Tools)
+
+This section covers the software tools used to wrangle, analyze, and visualize data before it's fed into a machine learning model.
+
+* **Core Python (Data structures, loops, functions, comprehensions, error handling):** 
+  The foundational building blocks. Data structures store data, loops automate repetitive tasks, functions make code reusable, and error handling prevents crashes.
+
+* **NumPy (arrays, indexing, reshaping, vectorized math, broadcasting):** 
+  The numerical engine. Arrays are faster than lists. Vectorized math and broadcasting let you perform mathematical operations across entire arrays instantly without slow loops.
+
+* **Pandas (loading data, cleaning, missing values, groupby, merging):** 
+  The data manipulation library (like Excel for Python). Used for cleaning messy data, filling missing values, aggregating (groupby), and joining datasets (merging).
+
+* **Matplotlib & Seaborn (choosing the right chart, the correlation heatmap):** 
+  The visualization libraries. A correlation heatmap is crucial in ML as it instantly shows which variables are strongly related to each other.
+
+
+# Math Intuition (The Engine)
+
+This section explains the mathematics that allows machine learning models (especially neural networks) to actually "learn."
+
+* **Vectors & dot products (one neuron's computation):** 
+  A vector is a 1D list of numbers (like inputs or weights). The dot product multiplies and sums them. This single math operation is exactly how one artificial neuron computes its output.
+
+* **Matrices & matrix multiplication (one layer's computation):** 
+  A matrix is a 2D grid of numbers. Matrix multiplication allows you to calculate the output of an entire layer of thousands of neurons simultaneously, which is why GPUs are used for AI.
+
+* **Derivatives (slope of error):** 
+  From calculus, a derivative tells you the rate of change or "slope." It tells the model which direction it needs to adjust its weights to make its prediction error smaller.
+
+* **Gradients & gradient descent (how models learn):** 
+  A gradient is a collection of derivatives. Gradient Descent is the learning algorithm: the model calculates the gradient (the slope of the error), takes a step downhill to reduce the error, and repeats until the error is minimized.
+
+* **Statistics (mean vs median, variance, std, skew):** 
+  Used to understand your dataset. Mean/median handle averages and outliers. Variance/std tell you how spread out data is. Skewness shows if data leans heavily to one side.
+
+* **Probability (conditional probability, base rates, the false-positive paradox):** 
+  ML predicts probabilities. Understanding conditional probability and base rates (the false-positive paradox) ensures you don't misinterpret what your model's predictions actually mean in the real world.
