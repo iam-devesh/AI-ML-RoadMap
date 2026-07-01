@@ -1,0 +1,35 @@
+# Learn the Core Concepts (about 1.5 hours)
+
+## 1. What Machine Learning Actually Is
+Instead of writing explicit rules (like `if age > 50 then...`), you show a model hundreds or thousands of examples, and it figures out the underlying patterns on its own. It uses the math you learned previously (like dot products and gradient descent) to adjust its internal weights until it makes accurate predictions based the data. 
+
+## 2. Supervised vs Unsupervised Learning
+* **Supervised Learning**: The most common type of ML (and the focus of this phase). You provide the model with "labeled" data—meaning you give it both the input and the correct answer. The model learns how to map the input to the answer.
+  * *Example*: Giving the model pictures of cats and dogs, explicitly labeled "cat" or "dog".
+* **Unsupervised Learning**: You provide data without any labels. The model is left on its own to discover structure, groups, or anomalies.
+  * *Example*: Giving the model a list of customer purchase histories and letting it group customers into clusters (e.g., "bargain hunters", "luxury buyers") without pre-defining those categories.
+
+## 3. Features vs Labels
+* **Features (X)**: These are the inputs or variables that the model uses to make its predictions. In a dataset, these are your columns.
+  * *Example (Titanic)*: Passenger age, ticket fare, cabin class.
+* **Label / Target (y)**: This is the exact thing you are trying to predict. It is the "answer" you want the model to output.
+  * *Example (Titanic)*: Whether the passenger survived (yes/no).
+
+## 4. Classification vs Regression
+These are the two main sub-categories of Supervised Learning.
+* **Classification**: Predicting a discrete category or class. 
+  * *Example*: Survived or did not survive? Is this email spam or not spam? Is the image a cat or a dog?
+* **Regression**: Predicting a continuous number.
+  * *Example*: What will this house sell for? What will the temperature be tomorrow? 
+
+## 5. The Train/Test Split (CRITICAL)
+This is the single most important concept for training reliable models. You **never** evaluate your model on the same data you used to train it. 
+* **Training Set (usually ~80%)**: The data the model studies to learn patterns.
+* **Testing Set (usually ~20%)**: Data hidden from the model during training, used only to evaluate it at the very end.
+* **Why?**: If you test the model on its training data, you don't know if it actually learned the underlying logic, or if it just purely memorized the answers. Testing on unseen data proves whether the model can generalize to real-world scenarios. Skipping this is the #1 beginner mistake.
+
+## 6. Overfitting vs Underfitting (The Balancing Act)
+When a model trains, it tries to fit a mathematical curve to your data points.
+* **Overfitting (Memorization)**: The model is too complex and perfectly memorizes the training data, including all the random noise and outliers. Result: It scores 100% on the training set, but completely fails on new, unseen data (the test set).
+* **Underfitting (Too Simple)**: The model is too simple and fails to capture the underlying pattern at all. Result: It performs poorly on both the training and testing sets.
+* **The Goal**: Finding the "Goldilocks" middle ground where the model captures the general pattern well enough to succeed on data it has never seen before.
